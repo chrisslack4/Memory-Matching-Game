@@ -81,15 +81,12 @@ body {
 }
 
 .card::before {
-    /* Show the card's content on the front side */
     transform: rotateX(180deg);
-
     content: attr(data-card);
     line-height: 110px;
 }
 
 .card::after {
-    /* Show the card's back-face class on the back side */
     content: "❓";
     font-size: 60px;
     line-height: 110px;
