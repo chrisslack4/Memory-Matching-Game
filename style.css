@@ -1,0 +1,98 @@
+/* Sprint 3: Javascript Memory Card Game */
+/* css file */
+/* CSE 310 Class */
+/* 15 February 2024 */
+/* Christopher Slack */
+
+/* Creates The Style for the Header */
+header {
+    background-color: #27ae60;
+    padding: 10px;
+    margin-bottom: 20px;
+}
+
+/* Creates the style for the H1 */
+h1 {
+    text-align: center;
+    font-size: 32px;
+    color: #130a0a;
+    margin: 0;
+}
+
+/* Creates the style for the webpage */
+body {
+    font-family: 'Times New Roman', Times, serif;
+    background-color: #0532c9;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    padding: 60px 0;
+    box-sizing: border-box;
+}
+
+/* Creates the card grid */
+.memory-game {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 10px;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+/* Creates the Cards */
+.card {
+    background-color: #02f4dc;
+    border-radius: 10px;
+    padding: 60px;
+    text-align: center;
+    font-size: 60px;
+    cursor: pointer;
+    transition: transform 0.5s;
+    transform-style: preserve-3d;
+}
+
+/* Adds a back-face class for the cards back side */
+.card.back-face {
+    background-color: #387dcd;
+    color: #fff;
+}
+
+/* Adds a flipped class for the cards front side */
+.card.flipped {
+    transform: rotateX(180deg);
+}
+
+/* Hides the matched cards */
+.card.hidden {
+    visibility: hidden;
+}
+
+/* Creates the card's front and back sides */
+.card::before, .card::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden;
+}
+
+.card::before {
+    /* Show the card's content on the front side */
+    transform: rotateX(180deg);
+
+    content: attr(data-card);
+    line-height: 110px;
+}
+
+.card::after {
+    /* Show the card's back-face class on the back side */
+    content: "❓";
+    font-size: 60px;
+    line-height: 110px;
+    background-color: #387dcd;
+    color: #fff;
+}
